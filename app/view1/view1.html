@@ -1,1 +1,6 @@
-<p>This is the partial for view 1.</p>
+<h1>Login</h1>
+<input type="text" placeholder="Username" ng-model="user.username">
+<input type="password" placeholder="Password" ng-model="user.password">
+<button ng-click="login()">Login</button>
+<br>
+{{user.username}} --- {{user.password}}

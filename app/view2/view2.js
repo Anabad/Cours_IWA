@@ -9,6 +9,19 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', [function() {
-
+.controller('View2Ctrl', ['$scope',function($scope) {
+  var vm=$scope;
+  
+  vm.displayName = function () {
+      alert(vm.nom + "");
+  };
+  vm.addName = function () {
+      vm.userList.push({name : vm.nom});
+  }
+  vm.userList =[
+    {name :"kevin"},
+    {name :"jean"},
+    {name :"pierre"}
+  ];
+  vm.nom;
 }]);

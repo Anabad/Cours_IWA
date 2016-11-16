@@ -1,5 +1,9 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<input type="text" placeholder="Name" ng-model="nom">
+<button ng-click="addName()">Ajouter</button>
+<button ng-click="displaName()">Afficher</button>
+<ul ng-show="userList.length > 3">
+  <li ng-repeat="user in userList track by user.name">
+    {{$index}} -
+    {{user.name}}
+  </li>
+</ul>

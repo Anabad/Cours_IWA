@@ -9,6 +9,13 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('View1Ctrl',['$scope',function($scope,authService) {
+  const vm = $scope;
+  vm.user = {};
+  vm.user.username;
+  vm.user.password;
+  vm.login = function () {
+      authService.login(vm.user);
+      console.log(authService.isAuthorised);
+  };
 }]);
