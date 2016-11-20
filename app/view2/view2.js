@@ -1,6 +1,5 @@
 'use strict';
-
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute', 'myApp.authService',])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view2', {
@@ -9,19 +8,12 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', ['$scope',function($scope) {
-  var vm=$scope;
-  
-  vm.displayName = function () {
-      alert(vm.nom + "");
-  };
-  vm.addName = function () {
-      vm.userList.push({name : vm.nom});
+.controller('View2Ctrl', ['$scope', 'authService','$location', function( $scope, auth, $location ) {
+  if (!auth.isAuthentifiedUser){
+      $location.path('/login');
   }
-  vm.userList =[
-    {name :"kevin"},
-    {name :"jean"},
-    {name :"pierre"}
-  ];
-  vm.nom;
+  else{
+      const vm = $scope;
+      vm.username = auth.currentUser.username;
+  }
 }]);

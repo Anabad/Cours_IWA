@@ -1,9 +1,12 @@
-<input type="text" placeholder="Name" ng-model="nom">
-<button ng-click="addName()">Ajouter</button>
-<button ng-click="displaName()">Afficher</button>
-<ul ng-show="userList.length > 3">
-  <li ng-repeat="user in userList track by user.name">
-    {{$index}} -
-    {{user.name}}
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View2</title>
+</head>
+<body>
+Are you still here <strong>{{username}}</strong>?
+<br>
+There's nothing to do here you may as well log out.
+</body>
+</html>

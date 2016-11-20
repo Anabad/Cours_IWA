@@ -3,12 +3,33 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
+    'myApp.authService',
+  'myApp.login',
   'myApp.view2',
-  'myApp.version'
+    'myApp.welcome'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-  // Donne la route par defaut
-  $routeProvider.otherwise({redirectTo: '/view1'});
+
+  $routeProvider.otherwise({redirectTo: '/login'});
+}]).
+controller('appController',[
+    '$scope',
+    'authService',
+    '$route',
+    '$rootScope',
+    '$location',
+    function( $scope, auth, $route, $rootScope, $location) {
+      const vm = $scope;
+      vm.isAuthentifiedUser = auth.isAuthentifiedUser;
+        $rootScope.$on('userLoggedIn', function () {
+          vm.isAuthentifiedUser = auth.isAuthentifiedUser;
+          $route.reload();
+        });
+        vm.logout = function(){
+          auth.logout();
+          $location.path('/login');
+            vm.isAuthentifiedUser = auth.isAuthentifiedUser;
+            $route.reload();
+        };
 }]);

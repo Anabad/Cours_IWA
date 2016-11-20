@@ -1,0 +1,7 @@
+<div id="login_user">
+    <span class="errorMessage" ng-show="!isAuthentifiedUser">{{loginFailedMessage}}</span>
+    <br>
+    <input type="text" placeholder="Login" ng-model="user.username">
+    <input type="password" placeholder="Password" ng-model="user.password">
+    <button ng-click="login()"> Login </button>
+</div>
