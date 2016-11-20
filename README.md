@@ -1,6 +1,6 @@
 # Installing and running
 
-##Clone the project with [git][git]
+##Clone the project with git
 
 ```
 git clone https://github.com/Anabad/Cours_IWA.git
@@ -21,11 +21,13 @@ bower install
 npm start
 ```
 ###App will be served at
+```
 http://localhost:8000
+```
 
 ##Valid Username : password combinations
 
-Kevin : password
-Anand : sudo
-Antoine : jaiplusdidees
-Alexis : password
+Kevin : password<br/>
+Anand : sudo<br/>
+Antoine : jaiplusdidees<br/>
+Alexis : password<br/>
