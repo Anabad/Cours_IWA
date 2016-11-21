@@ -1,7 +1,32 @@
 <div id="login_user">
-    <span class="errorMessage" ng-show="!isAuthentifiedUser">{{loginFailedMessage}}</span>
+
+    <div class="row">
+        <div class="large-6 columns">
+            <div class="signup-panel">
+                <p class="welcome"> AngularJS login App</p>
+                <form>
+                    <div class="row collapse">
+                        <div class="small-2  columns">
+                            <span class="prefix"><i class="fi-torso-female"></i></span>
+                        </div>
+                        <div class="small-10  columns">
+                            <input type="text" placeholder="Login" ng-model="user.username">
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <div class="small-2 columns ">
+                            <span class="prefix"><i class="fi-lock"></i></span>
+                        </div>
+                        <div class="small-10 columns ">
+                            <input type="password" placeholder="Password" ng-model="user.password">
+                        </div>
+                    </div>
+                </form>
+                <button class="button " ng-click="login()"> Login </button>
+            </div>
+        </div>
+    </div>
     <br>
-    <input type="text" placeholder="Login" ng-model="user.username">
-    <input type="password" placeholder="Password" ng-model="user.password">
-    <button ng-click="login()"> Login </button>
+    <span class="errorMessage" ng-show="!isAuthentifiedUser">{{loginFailedMessage}}</span>
+
 </div>
