@@ -14,14 +14,16 @@ angular.module('myApp.login', ['ngRoute', 'myApp.authService'])
   var vm = $scope;
   vm.isAuthentifiedUser = auth.isAuthentifiedUser;
   vm.currentUserName = auth.currentUser.username;
-  vm.loginFailedMessage = "";
+  vm.loginFailedMessage = "Authentication failed!";
   vm.user={};
+  vm.authFailed = false;
   vm.login = function() {
       auth.login( vm.user  );
       if (! auth.isAuthentifiedUser){
-        vm.loginFailedMessage = "Authentication failed!";
+        vm.authFailed= true;
       }
       else{
+          vm.authFailed = false;
           $rootScope.$broadcast('userLoggedIn');
           $location.path('/welcome');
       }
